@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://b38qn4k3uhcsk"]
+
+[ext_resource type="Script" uid="uid://dxgm3wbci8ulo" path="res://entity/player/player_controller.gd" id="1_7dnqm"]
+[ext_resource type="PackedScene" uid="uid://b310w4l8to6j8" path="res://entity/player/player.tscn" id="2_n0j3t"]
+
+[node name="playerController" type="Node2D"]
+script = ExtResource("1_7dnqm")
+
+[node name="camera" type="Camera2D" parent="."]
+
+[node name="player" parent="." instance=ExtResource("2_n0j3t")]
+unique_name_in_owner = true
