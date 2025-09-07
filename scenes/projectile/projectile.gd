@@ -1,27 +1,33 @@
-class_name Projectile
 extends Area2D
+class_name Bullet
 
-var target: Node2D
+@export var speed: float = 300.0
+@export var dmg: int = 1
+@export var type: String = "normal"
+@export var lifetime: float = 5.0
+@export var shooter : Node
 
-var speed : float = 100
-var velocity : Vector2 = Vector2.ZERO
-
-var dmg : int = 1
-
-var type : String = "normal"
+var velocity: Vector2 = Vector2.ZERO
 
 func _ready():
-	body_entered.connect(_body_enter)
+	monitoring = true
+	monitorable = true
+	area_entered.connect(_on_body_entered)
+	# Auto-despawn
+	await get_tree().create_timer(lifetime).timeout
+	if is_instance_valid(self):
+		queue_free()
 
-func _process(delta):
-	global_position += velocity *delta
-	look_at(target.global_position)
+func _physics_process(delta: float) -> void:
+	global_position += velocity * delta
 
-func set_target():
-	velocity = (target.global_position - global_position).normalized() *speed	
+func set_direction(dir: Vector2):
+	velocity = dir.normalized() * speed
+	rotation = velocity.angle()
 
-
-func _body_enter(body: Node):
-	if body.is_in_group("damageable"):
-		body.take_dmg(dmg, type)
-	queue_free()
+func _on_body_entered(area: Node):
+	if area == shooter:
+		return
+	if area.is_in_group("damageable") and area.has_method("take_dmg"):
+		area.take_dmg(dmg, type)
+		queue_free()

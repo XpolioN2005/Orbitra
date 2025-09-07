@@ -1,7 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://dnyvphsuhgeh"]
+[gd_scene load_steps=3 format=3 uid="uid://dnyvphsuhgeh"]
 
 [ext_resource type="PackedScene" uid="uid://b38qn4k3uhcsk" path="res://entity/player/player_controller.tscn" id="1_j5px3"]
+[ext_resource type="PackedScene" uid="uid://cmv36wa6vugmx" path="res://entity/bosses/boss.tscn" id="2_twpsu"]
 
 [node name="root" type="Node2D"]
 
 [node name="playerController" parent="." instance=ExtResource("1_j5px3")]
+
+[node name="boss" parent="." instance=ExtResource("2_twpsu")]
+unique_name_in_owner = true

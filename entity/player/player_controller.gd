@@ -8,11 +8,14 @@ var angle_deg: float = 0
 var fire_timer: float = 0
 
 @onready var player = %player
+@onready var boss = %boss
 
-signal shoot_bullet
 
 # Track touches
 var active_touches = {}
+
+func _ready():
+	player.boss = boss
 
 func _process(delta):
 	handle_orbit(delta, delta)
@@ -40,7 +43,7 @@ func handle_orbit(delta, dt):
 		angle_deg += orbit_speed * delta
 
 func update_player_position():
-	var radius = 150
+	var radius = (get_viewport().size.y -60) / 1.5
 	var rad = deg_to_rad(angle_deg)
 	player.global_position = global_position + Vector2(sin(rad), cos(rad)) * radius
 	player.look_at(global_position)
@@ -59,5 +62,14 @@ func _input(event):
 			var touch_data = active_touches.get(event.index)
 			if touch_data:
 				if touch_data["duration"] < hold_threshold:
-					emit_signal("shoot_bullet")
+					shoot()
 				active_touches.erase(event.index)
+
+@export var bulletScene: PackedScene
+func shoot():
+	var b = bulletScene.instantiate()
+	b.shooter = player
+	b.global_position = player.global_position
+	var dir = (boss.global_position - player.global_position).normalized() # aim at boss
+	b.set_direction(dir)
+	add_child(b)
