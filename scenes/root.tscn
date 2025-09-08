@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://dnyvphsuhgeh"]
+[gd_scene load_steps=5 format=3 uid="uid://dnyvphsuhgeh"]
 
 [ext_resource type="PackedScene" uid="uid://b38qn4k3uhcsk" path="res://entity/player/player_controller.tscn" id="1_j5px3"]
 [ext_resource type="PackedScene" uid="uid://cmv36wa6vugmx" path="res://entity/bosses/boss.tscn" id="2_twpsu"]
+[ext_resource type="PackedScene" uid="uid://cfgck33okxysn" path="res://scenes/projectile/bullet_engine.tscn" id="3_lrqlo"]
+[ext_resource type="PackedScene" uid="uid://jgyfijnoqlpw" path="res://scenes/projectile/bullet.tscn" id="4_sqa0i"]
 
 [node name="root" type="Node2D"]
 
@@ -9,3 +11,7 @@
 
 [node name="boss" parent="." instance=ExtResource("2_twpsu")]
 unique_name_in_owner = true
+
+[node name="bulletEngine" parent="." instance=ExtResource("3_lrqlo")]
+unique_name_in_owner = true
+normal_bullet_scene = ExtResource("4_sqa0i")

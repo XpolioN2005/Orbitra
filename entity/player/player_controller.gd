@@ -9,6 +9,7 @@ var fire_timer: float = 0
 
 @onready var player = %player
 @onready var boss = %boss
+@onready var bullet_engine = %bulletEngine
 
 
 # Track touches
@@ -62,14 +63,8 @@ func _input(event):
 			var touch_data = active_touches.get(event.index)
 			if touch_data:
 				if touch_data["duration"] < hold_threshold:
-					shoot()
-				active_touches.erase(event.index)
 
-@export var bulletScene: PackedScene
-func shoot():
-	var b = bulletScene.instantiate()
-	b.shooter = player
-	b.global_position = player.global_position
-	var dir = (boss.global_position - player.global_position).normalized() # aim at boss
-	b.set_direction(dir)
-	add_child(b)
+					var dir =  boss.global_position - player.global_position
+					bullet_engine.shoot_straight(player.global_position, dir, player)
+				
+				active_touches.erase(event.index)
