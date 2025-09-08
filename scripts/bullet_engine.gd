@@ -21,14 +21,14 @@ func shoot_straight(
 		b.global_position = pos
 		b.shooter = shooter
 		
-		if b.has_method("set_direction"):
-			b.set_direction(direction)
-		
 		b.speed = speed
 		b.dmg = dmg
 		
+		if b.has_method("set_direction"):
+			b.set_direction(direction)
+		
 		bullet_holder.add_child(b)
-		await get_tree().create_timer(0.3).timeout
+		await get_tree().create_timer(0.1).timeout
 
 # Spawn bullets in a ring
 func shoot_ring(
