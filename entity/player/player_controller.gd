@@ -17,6 +17,7 @@ var active_touches = {}
 
 func _ready():
 	player.boss = boss
+	boss.player = player
 
 func _process(delta):
 	handle_orbit(delta, delta)
@@ -65,6 +66,6 @@ func _input(event):
 				if touch_data["duration"] < hold_threshold:
 
 					var dir =  boss.global_position - player.global_position
-					bullet_engine.shoot_straight(player.global_position, dir, player)
+					bullet_engine.shoot_straight(player.global_position, dir, player,1)
 				
 				active_touches.erase(event.index)
