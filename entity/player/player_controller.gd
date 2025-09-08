@@ -15,9 +15,6 @@ var fire_timer: float = 0
 # Track touches
 var active_touches = {}
 
-func _ready():
-	player.boss = boss
-	boss.player = player
 
 func _process(delta):
 	handle_orbit(delta, delta)

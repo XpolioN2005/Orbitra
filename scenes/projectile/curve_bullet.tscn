@@ -1,13 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://cx6akirubb1aa"]
 
-[ext_resource type="Script" uid="uid://djovcu6y0cpwo" path="res://scripts/sprinal_bullet.gd" id="1_kiot0"]
-[ext_resource type="Texture2D" uid="uid://chrmdq54n6ejw" path="res://icon.svg" id="2_gqu18"]
+[ext_resource type="Script" uid="uid://djovcu6y0cpwo" path="res://scripts/curve_bullet.gd" id="1_5figp"]
+[ext_resource type="Texture2D" uid="uid://chrmdq54n6ejw" path="res://icon.svg" id="2_4i87d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ng677"]
 size = Vector2(118, 121)
 
-[node name="sprinalBullet" type="Area2D"]
-script = ExtResource("1_kiot0")
+[node name="curveBullet" type="Area2D"]
+script = ExtResource("1_5figp")
 metadata/_custom_type_script = "uid://cpa0svo4r0hkk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -16,4 +16,4 @@ shape = SubResource("RectangleShape2D_ng677")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("2_gqu18")
+texture = ExtResource("2_4i87d")

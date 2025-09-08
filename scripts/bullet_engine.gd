@@ -2,12 +2,20 @@ extends Node2D
 class_name BulletEngine
 
 @export var normal_bullet_scene: PackedScene
-@export var spiral_bullet_scene: PackedScene
+@export var curve_bullet_scene: PackedScene   # updated: use CurveBullet
 
 @onready var bullet_holder = $bullets
 
 # Spawn straight bullets
-func shoot_straight( pos: Vector2, direction: Vector2, shooter: Node ,num_of_bullet:int,bullet_type: PackedScene = normal_bullet_scene, speed: float = 300, dmg: int = 1):
+func shoot_straight(
+	pos: Vector2, 
+	direction: Vector2, 
+	shooter: Node,
+	num_of_bullet: int,
+	bullet_type: PackedScene = normal_bullet_scene, 
+	speed: float = 300, 
+	dmg: int = 1
+):
 	for i in range(num_of_bullet):
 		var b = bullet_type.instantiate()
 		b.global_position = pos
@@ -17,7 +25,6 @@ func shoot_straight( pos: Vector2, direction: Vector2, shooter: Node ,num_of_bul
 			b.set_direction(direction)
 		
 		b.speed = speed
-		
 		b.dmg = dmg
 		
 		bullet_holder.add_child(b)
@@ -37,19 +44,14 @@ func shoot_ring(
 	for i in range(bullet_count):
 		var angle = (TAU / bullet_count) * i + angle_offset
 		var dir = Vector2.RIGHT.rotated(angle)
-		shoot_straight(pos + dir * radius, dir, shooter, 1 , bullet_type, speed, dmg)
+		shoot_straight(pos + dir * radius, dir, shooter, 1, bullet_type, speed, dmg)
 
-# Spawn a spiral bullet (needs angular_speed in bullet script)
-func shoot_spiral(pos: Vector2 ,shooter: Node, target: Node, num_of_bullet: int, angular_speed: float = 4.0, speed: float = 100, dmg: int = 1):
-	for i in range(num_of_bullet):
-		var b = spiral_bullet_scene.instantiate()
-		b.global_position = pos
-		b.shooter = shooter
-		b.target = target
-		
-		b.angular_speed = angular_speed
-		b.center_speed = speed
-		b.dmg = dmg
-		
-		bullet_holder.add_child(b)
-		await get_tree().create_timer(0.3).timeout
+# Spawn curve bullets (CurveBullet script handles curve logic)
+func shoot_curve(pos: Vector2, shooter: Node,target: Node, arc_height: float = 200.0, travel_time: float = 1.0):
+	var b = curve_bullet_scene.instantiate()
+	b.global_position = pos
+	b.target = target
+	b.shooter = shooter
+	b.arc_height = arc_height
+	b.travel_time = travel_time
+	bullet_holder.add_child(b)
