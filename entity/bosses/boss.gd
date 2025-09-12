@@ -41,15 +41,12 @@ func _ready():
 # --- Damage + Invincibility ---
 func take_dmg(dmg: int, type: String):
 	if invincible:
-		print("Boss is invincible, damage ignored")
 		return
 
 	match type:
 		"normal":
 			hp -= dmg
-			print("Boss took ", dmg, " damage. HP now: ", hp)
 			if hp <= 0:
-				print("Boss defeated!")
 				queue_free()
 			else:
 				_start_invincibility()
@@ -60,8 +57,7 @@ func _start_invincibility():
 	flash_sprite()
 	invincible = false
 	sprite.modulate = Color(1, 1, 1) # reset
-	print("Boss invincibility ended.")
-
+	
 
 func flash_sprite():
 	sprite.self_modulate = Color(1, 0.3, 0.3) # quick red flash feedback
@@ -74,10 +70,8 @@ func flash_sprite():
 # straight shoot
 func straight_shoot():
 	if player == null or bullet_engine == null:
-		print("Cannot straight_shoot: missing player or bullet_engine")
 		return
 
-	print("Straight shoot triggered")
 	var dir = (player.global_position - global_position).normalized()
 	await bullet_engine.shoot_straight(global_position, dir, self, 5, bullet_engine.normal_bullet_scene, 600, 1)
 
@@ -85,10 +79,8 @@ func straight_shoot():
 # ring shoot
 func ring_shoot(num_of_ring: int = 3):
 	if bullet_engine == null:
-		print("Cannot ring_shoot: missing bullet_engine")
 		return
 
-	print("Ring shoot triggered, rings: ", num_of_ring)
 	var ring_offset := 0.0
 	for i in range(num_of_ring):
 		bullet_engine.shoot_ring(global_position, 8, self, bullet_engine.normal_bullet_scene, 400, 1, 0, ring_offset)
@@ -99,10 +91,8 @@ func ring_shoot(num_of_ring: int = 3):
 # beam (stream of bullets)
 func beam_player(length: int = 15):
 	if player == null or bullet_engine == null:
-		print("Cannot beam_player: missing player or bullet_engine")
 		return
 
-	print("Beam shoot triggered, length: ", length)
 	for i in range(length):
 		var dir = (player.global_position - global_position).normalized()
 		bullet_engine.shoot_straight(global_position, dir, self, 1, bullet_engine.normal_bullet_scene, 700, 1)
@@ -112,10 +102,8 @@ func beam_player(length: int = 15):
 # curve shoot
 func curve_shoot(num: int = 10):
 	if player == null or bullet_engine == null:
-		print("Cannot curve_shoot: missing player or bullet_engine")
 		return
 
-	print("Curve shoot triggered, num: ", num)
 	for i in range(num):
 		bullet_engine.shoot_curve(global_position, self, player, 200, 0.5)
 		await get_tree().create_timer(0.2).timeout
@@ -124,10 +112,8 @@ func curve_shoot(num: int = 10):
 # curve beam (stream of curve bullets)
 func curve_beam(length: int = 20):
 	if player == null or bullet_engine == null:
-		print("Cannot curve_beam: missing player or bullet_engine")
 		return
 
-	print("Curve beam triggered, length: ", length)
 	for i in range(length):
 		bullet_engine.shoot_curve(global_position, self, player)
 		await get_tree().create_timer(0.1).timeout
@@ -147,7 +133,6 @@ var atk_cycle = [curve_shoot, straight_shoot, ring_shoot, beam_player, curve_bea
 var atk_counter := 0
 func _on_attack_cycle():
 	if atk_cycle.is_empty():
-		print("No attacks in cycle!")
 		return
 
 	# Pick a random attack from the cycle
@@ -155,7 +140,6 @@ func _on_attack_cycle():
 		atk_counter +=1
 		if (atk_counter <=3):
 			var attack_func = atk_cycle[randi_range(0, atk_cycle.size() - 1)]
-			print("Boss executing attack: ", attack_func)
 			# Call the selected attack
 			attack_func.call()  # call the function stored in the array
 		else:

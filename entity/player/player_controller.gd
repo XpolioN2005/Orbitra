@@ -45,8 +45,12 @@ func update_player_position():
 	var radius = (get_viewport().size.y -60) / 1.5
 	var rad = deg_to_rad(angle_deg)
 	player.global_position = global_position + Vector2(sin(rad), cos(rad)) * radius
-	player.look_at(global_position)
-
+	# player.look_at(global_position)
+	var pos_x = (global_position-player.global_position).x
+	if pos_x < 0:
+		player.sprite.flip_h = true
+	else:
+		player.sprite.flip_h = false
 
 func _input(event):
 	if event is InputEventScreenTouch:
