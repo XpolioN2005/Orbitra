@@ -16,7 +16,7 @@ func take_dmg(dmg: int, type: String):
 		"normal":
 			hp -= dmg
 			if hp <= 0:
-				queue_free()
+				visible = false
 			else:
 				_play_hit_animation()
 

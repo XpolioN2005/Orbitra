@@ -11,13 +11,9 @@ config_version=5
 [application]
 
 config/name="orbit-bossrush"
-run/main_scene="uid://dnyvphsuhgeh"
+run/main_scene="uid://xf1s403l5rky"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
-
-[autoload]
-
-Global="*res://scripts/global.gd"
 
 [display]
 

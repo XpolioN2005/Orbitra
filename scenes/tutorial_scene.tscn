@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=4 uid="uid://xf1s403l5rky"]
+[gd_scene load_steps=10 format=4 uid="uid://xf1s403l5rky"]
 
 [ext_resource type="PackedScene" uid="uid://du7pmi2anvg4f" path="res://ui/tutorial.tscn" id="1_tr4y6"]
 [ext_resource type="PackedScene" uid="uid://b38qn4k3uhcsk" path="res://entity/player/player_controller.tscn" id="2_jelwi"]
 [ext_resource type="PackedScene" uid="uid://cfgck33okxysn" path="res://scenes/projectile/bullet_engine.tscn" id="2_yf4vk"]
 [ext_resource type="PackedScene" uid="uid://lof5wc26r5w5" path="res://entity/dummy/dummy.tscn" id="5_k7w8g"]
 [ext_resource type="Texture2D" uid="uid://4kgp1540i85x" path="res://assests/env/others/ground tile.png" id="5_tbeqj"]
+[ext_resource type="Script" uid="uid://c6rcrymw7tgw0" path="res://scripts/crystals.gd" id="7_iarw2"]
+[ext_resource type="PackedScene" uid="uid://5stelcvfmygh" path="res://scenes/crystal.tscn" id="8_4yomp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k7w8g"]
 texture = ExtResource("5_tbeqj")
@@ -68,4 +70,33 @@ tile_set = SubResource("TileSet_ki3mu")
 
 [node name="boss" parent="." instance=ExtResource("5_k7w8g")]
 unique_name_in_owner = true
-scale = Vector2(3, 3)
+scale = Vector2(5, 5)
+
+[node name="env" type="Node" parent="."]
+
+[node name="crystals" type="Node" parent="env"]
+script = ExtResource("7_iarw2")
+
+[node name="crystal" parent="env/crystals" instance=ExtResource("8_4yomp")]
+position = Vector2(-376, -418)
+
+[node name="crystal2" parent="env/crystals" instance=ExtResource("8_4yomp")]
+position = Vector2(451, -427)
+
+[node name="crystal3" parent="env/crystals" instance=ExtResource("8_4yomp")]
+position = Vector2(469, 367)
+
+[node name="crystal4" parent="env/crystals" instance=ExtResource("8_4yomp")]
+position = Vector2(-449, 362)
+
+[node name="crystal5" parent="env/crystals" instance=ExtResource("8_4yomp")]
+position = Vector2(-659, -19)
+
+[node name="crystal6" parent="env/crystals" instance=ExtResource("8_4yomp")]
+position = Vector2(664, -9)
+
+[node name="world" type="DirectionalLight2D" parent="env"]
+color = Color(0.621757, 0.496205, 0.530855, 1)
+energy = 0.7
+blend_mode = 1
+shadow_color = Color(0, 0, 0, 0.72549)
