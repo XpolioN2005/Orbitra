@@ -8,7 +8,8 @@ class_name Boss
 
 # --- Boss properties ---
 var boss_name = "prototype boss"
-var hp = 200
+var MAXHP = 200.0
+var hp = 200.0
 var phase := 1
 var invincible := true
 

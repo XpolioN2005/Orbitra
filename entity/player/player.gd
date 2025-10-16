@@ -5,7 +5,8 @@ extends Area2D
 @onready var boss : Node =  get_tree().get_first_node_in_group("boss")
 @onready var sprite = $Sprite
 
-var hp = 20
+var MAXHP = 20.0
+var hp = 20.0
 
 func _ready():
 	add_to_group("damageable")

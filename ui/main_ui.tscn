@@ -1,4 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://nups0h4h770m"]
+[gd_scene load_steps=6 format=3 uid="uid://nups0h4h770m"]
+
+[ext_resource type="Script" uid="uid://blmtqnlgqjb7p" path="res://ui/main_ui.gd" id="1_v5qxn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rx7q4"]
 bg_color = Color(0.972549, 0.34902, 0.486275, 0.509804)
@@ -14,6 +16,20 @@ corner_radius_top_right = 50
 corner_radius_bottom_right = 50
 corner_radius_bottom_left = 50
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3lvfr"]
+bg_color = Color(0.0374751, 0.689124, 0.666416, 0.509804)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hlo7n"]
+bg_color = Color(0.00046398, 0.332914, 0.6409, 0.717647)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
 [node name="main_ui" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -21,8 +37,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_v5qxn")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="main" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -30,23 +47,24 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Control2" type="Control" parent="VBoxContainer"]
+[node name="Control2" type="Control" parent="main"]
 custom_minimum_size = Vector2(0, 15)
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="plater_stat" type="HBoxContainer" parent="main"]
 layout_mode = 2
 theme_override_constants/separation = 15
 
-[node name="Control2" type="Control" parent="VBoxContainer/HBoxContainer"]
+[node name="Control2" type="Control" parent="main/plater_stat"]
 custom_minimum_size = Vector2(15, 0)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="main/plater_stat"]
 layout_mode = 2
 text = "HP:"
 
-[node name="ProgressBar" type="ProgressBar" parent="VBoxContainer/HBoxContainer"]
+[node name="player_bar" type="ProgressBar" parent="main/plater_stat"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.6
@@ -54,27 +72,36 @@ theme_override_styles/background = SubResource("StyleBoxFlat_rx7q4")
 theme_override_styles/fill = SubResource("StyleBoxFlat_v5qxn")
 value = 50.0
 
-[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer"]
+[node name="Control" type="Control" parent="main/plater_stat"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Control" type="Control" parent="VBoxContainer"]
+[node name="Control" type="Control" parent="main"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="VBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="boss_stat" type="HBoxContainer" parent="main"]
 layout_mode = 2
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="main/boss_stat"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="main/boss_stat/VBoxContainer"]
 layout_mode = 2
 text = "THE GREAT EYE"
 
-[node name="ProgressBar" type="ProgressBar" parent="VBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(800, 0)
+[node name="boss_bar" type="ProgressBar" parent="main/boss_stat/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(700, 0)
 layout_mode = 2
+size_flags_stretch_ratio = 0.6
+theme_override_styles/background = SubResource("StyleBoxFlat_3lvfr")
+theme_override_styles/fill = SubResource("StyleBoxFlat_hlo7n")
+value = 50.0
 
-[node name="Control3" type="Control" parent="VBoxContainer"]
+[node name="Control3" type="Control" parent="main"]
 custom_minimum_size = Vector2(0, 15)
 layout_mode = 2
