@@ -22,11 +22,12 @@ var target_radius: float
 var active_touches = {}
 
 func _ready():
+	add_to_group("player_controller")
 	current_radius = radius_base
 	target_radius = radius_base
 
 func _process(delta):
-	handle_orbit(delta, delta)
+	handle_orbit(delta)
 	fire_timer -= delta
 
 	# Smoothly approach target radius
@@ -38,13 +39,13 @@ func _process(delta):
 
 	update_player_position()
 
-func handle_orbit(delta, dt):
+func handle_orbit(delta):
 	var left = false
 	var right = false
 	
 	for touch_index in active_touches.keys():
 		var touch_data = active_touches[touch_index]
-		touch_data["duration"] += dt
+		touch_data["duration"] += delta
 		
 		if touch_data["duration"] >= hold_threshold:
 			if touch_data["position"].x < get_viewport().size.x / 2:
