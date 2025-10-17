@@ -3,4 +3,4 @@
 /android/
 .vscode/
 
-export/
+.export/
