@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://dnyvphsuhgeh"]
+[gd_scene load_steps=32 format=4 uid="uid://dnyvphsuhgeh"]
 
 [ext_resource type="PackedScene" uid="uid://b38qn4k3uhcsk" path="res://entity/player/player_controller.tscn" id="1_j5px3"]
 [ext_resource type="Script" uid="uid://c6rcrymw7tgw0" path="res://scripts/crystals.gd" id="1_jh1ax"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://cfgck33okxysn" path="res://scenes/projectile/bullet_engine.tscn" id="3_lrqlo"]
 [ext_resource type="Texture2D" uid="uid://4kgp1540i85x" path="res://assests/env/others/ground tile.png" id="7_j287u"]
 [ext_resource type="PackedScene" uid="uid://nups0h4h770m" path="res://ui/main_ui.tscn" id="8_5sfjl"]
+[ext_resource type="PackedScene" uid="uid://bblglf7vgj2fi" path="res://ui/gameover.tscn" id="9_7pvxh"]
+[ext_resource type="PackedScene" uid="uid://dqhpb8w5ub3fs" path="res://ui/gamewon.tscn" id="10_y3xxt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yg167"]
 atlas = ExtResource("3_kycxp")
@@ -242,3 +244,8 @@ tile_set = SubResource("TileSet_3hfy5")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="main_ui" parent="CanvasLayer" instance=ExtResource("8_5sfjl")]
+
+[node name="gameover" parent="CanvasLayer" instance=ExtResource("9_7pvxh")]
+
+[node name="gamewon" parent="CanvasLayer/gameover" instance=ExtResource("10_y3xxt")]
+layout_mode = 1

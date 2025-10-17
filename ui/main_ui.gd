@@ -20,6 +20,11 @@ func _ready() -> void:
 	boss_bar.value  = boss.hp
 
 func _process(delta: float) -> void:
+
+	if not Global.is_gameWon and not Global.is_gameover:
+		visible = true
+	else: visible = false
+
 	var t: float = clamp(smooth_speed * delta, 0.0, 1.0)
 	player_bar.value = lerp(player_bar.value, player.hp, t)
 	boss_bar.value  = lerp(boss_bar.value, boss.hp, t)

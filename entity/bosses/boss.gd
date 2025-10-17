@@ -48,8 +48,9 @@ func take_dmg(dmg: int, type: String):
 		"normal":
 			hp -= dmg
 			if hp <= 0:
-				queue_free()
+				Global.is_gameWon = true
 			else:
+				Global.is_gameWon = false
 				_start_invincibility()
 
 

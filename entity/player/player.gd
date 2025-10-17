@@ -12,6 +12,12 @@ func _ready():
 	add_to_group("damageable")
 	add_to_group("player")
 
+func _process(_delta):
+	if hp <=0:
+		Global.is_gameover = true
+	else: Global.is_gameover = false
+
+
 
 func take_dmg(dmg: int, type: String):
 

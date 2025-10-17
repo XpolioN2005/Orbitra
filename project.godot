@@ -15,6 +15,10 @@ run/main_scene="uid://xf1s403l5rky"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Global="*res://scripts/global.gd"
+
 [display]
 
 window/handheld/orientation=4
