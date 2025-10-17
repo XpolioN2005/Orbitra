@@ -145,7 +145,7 @@ animations = [{
 "speed": 12.0
 }]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5sfjl"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7pvxh"]
 texture = ExtResource("7_j287u")
 0:2/0 = 0
 1:2/0 = 0
@@ -187,7 +187,7 @@ texture = ExtResource("7_j287u")
 23:3/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_3hfy5"]
-sources/0 = SubResource("TileSetAtlasSource_5sfjl")
+sources/0 = SubResource("TileSetAtlasSource_7pvxh")
 
 [node name="root" type="Node2D"]
 
