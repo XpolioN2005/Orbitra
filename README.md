@@ -1,20 +1,67 @@
-# Bullet Hell Boss Fight
+# Orbitra: Bullet Symphony
 
-A fast-paced bullet hell game made with Godot 4.4. Dodge bullets and survive challenging boss attacks.
+**A 2D Boss-Rush Bullet Hell Prototype**  
+Developed by [XpolioN](https://xpolion.itch.io/)
 
-## Controls
+---
 
-- **Tap:** Shoot bullets
-- **Tap & Hold:** Orbit around the boss
+## 🎮 Overview
+**Orbitra: Bullet Symphony** traps you in the gravitational pull of colossal bosses.  
+Your only way to survive? Orbit, dodge, and strike in perfect rhythm.  
 
-## Gameplay
+This prototype explores the **core orbital combat system** — movement, bullet patterns, and the tension of being locked in constant motion.  
 
-- Navigate through dense bullet patterns.
-- Survive as long as possible while dodging bullets.
-- Timing and positioning are key, especially when orbiting bosses.
+> “Every orbit is a dance with death. Every boss, a symphony of chaos.”
 
-## How to Run
+---
 
-1. Download or clone this repository.
-2. Open the project in **Godot 4.4**.
-3. Run the main scene.
+## ⚙️ Current Prototype Features
+- Single boss encounter  
+- Orbit-based movement system  
+- Early bullet pattern mechanics  
+- Basic visuals (no sound yet)  
+- Focus on gameplay feel and clarity  
+
+---
+
+## 🚧 Roadmap
+- [ ] Sound design and music system  
+- [ ] Multiple boss phases  
+- [ ] Improved bullet telegraphing  
+- [ ] Particle FX and screen shake polish  
+- [ ] Expanded player skill set  
+- [ ] UI and accessibility options  
+
+---
+
+## 🧠 Feedback
+Feedback is critical at this stage!  
+Please share thoughts on:
+- Movement feel  
+- Difficulty balance  
+- Visual readability  
+- General gameplay flow  
+
+You can drop feedback on the [Itch.io page](https://xpolion.itch.io/orbitra) or open an issue here on GitHub.
+
+---
+
+## 📸 Screenshots
+![Orbitra Screenshot 1](https://img.itch.zone/aW1hZ2UvMzk2NzEyMy8yMzY1NjM0MC5wbmc=/original/wn40Wn.png)
+![Orbitra Screenshot 2](https://img.itch.zone/aW1hZ2UvMzk2NzEyMy8yMzY1NjMzOS5wbmc=/original/ynHM%2Bj.png)
+![Orbitra Screenshot 3](https://img.itch.zone/aW1hZ2UvMzk2NzEyMy8yMzY1NjMzOC5wbmc=/original/ipsQvD.png)
+
+---
+
+## 🛠️ Built With
+- **Godot 4.4**    
+
+---
+
+## 📄 License
+This project is released as a **prototype demo**.  
+
+---
+
+### 🌐 Play Now
+👉 [xpolion.itch.io/orbitra](https://xpolion.itch.io/orbitra)
