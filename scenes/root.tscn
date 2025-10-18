@@ -243,9 +243,8 @@ tile_set = SubResource("TileSet_3hfy5")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="gamewon" parent="CanvasLayer" instance=ExtResource("10_y3xxt")]
+
 [node name="main_ui" parent="CanvasLayer" instance=ExtResource("8_5sfjl")]
 
 [node name="gameover" parent="CanvasLayer" instance=ExtResource("9_7pvxh")]
-
-[node name="gamewon" parent="CanvasLayer/gameover" instance=ExtResource("10_y3xxt")]
-layout_mode = 1

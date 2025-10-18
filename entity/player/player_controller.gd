@@ -76,9 +76,11 @@ func _input(event):
 			var touch_data = active_touches.get(event.index)
 			if touch_data:
 				if touch_data["duration"] < hold_threshold:
-					var dir = boss.global_position - player.global_position
-					bullet_engine.shoot_straight(player.global_position, dir, player, 1)
+					if fire_timer <= 0.0:
+						var dir = boss.global_position - player.global_position
+						bullet_engine.shoot_straight(player.global_position, dir, player, 1)
 
-					target_radius = radius_base + radius_bump
+						target_radius = radius_base + radius_bump
+						fire_timer = fire_cooldown
 
 				active_touches.erase(event.index)
