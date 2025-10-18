@@ -57,6 +57,18 @@ You can drop feedback on the [Itch.io page](https://xpolion.itch.io/orbitra) or 
 - **Godot 4.4**    
 
 ---
+## Art Assets
+- *ShadowMyst Chronicles: Pillars of Enchantment* by **Blood_Seller** — used with permission for commercial use.
+- *2D Pixel Art Training Dummy* by **Elthen’s Pixel Art Shop** — used under Elthen’s licensing terms.
+- *Creature Mixer* by **Kenney** — assets created with this tool used under Kenney’s licence.
+- **Original game content and other art by XpolioN**
+
+## Sound Effects
+- ["Shoot 5"](https://pixabay.com/sound-effects/shoot-5-102360/) by [freesound_community](https://pixabay.com/users/freesound_community-46691455/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=102360) — Pixabay License
+- ["Dark Ambient Synth"](https://pixabay.com/sound-effects/dark-ambient-synth-67781/) by [Hakren](https://pixabay.com/sound-effects/dark-ambient-synth-67781/) — Pixabay License
+- ["Game Over"](https://pixabay.com/sound-effects/game-over-417465/) by [Alphix](https://pixabay.com/sound-effects/game-over-417465/) — Pixabay License
+- ["Violin Win 5"](https://pixabay.com/sound-effects/violin-win-5-185128/) by [floraphonic](https://pixabay.com/sound-effects/violin-win-5-185128/) — Pixabay License
+---
 
 ## 📄 License
 This project is released as a **prototype demo**.  
