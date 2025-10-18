@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://dnyvphsuhgeh"]
+[gd_scene load_steps=33 format=4 uid="uid://dnyvphsuhgeh"]
 
 [ext_resource type="PackedScene" uid="uid://b38qn4k3uhcsk" path="res://entity/player/player_controller.tscn" id="1_j5px3"]
 [ext_resource type="Script" uid="uid://c6rcrymw7tgw0" path="res://scripts/crystals.gd" id="1_jh1ax"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://nups0h4h770m" path="res://ui/main_ui.tscn" id="8_5sfjl"]
 [ext_resource type="PackedScene" uid="uid://bblglf7vgj2fi" path="res://ui/gameover.tscn" id="9_7pvxh"]
 [ext_resource type="PackedScene" uid="uid://dqhpb8w5ub3fs" path="res://ui/gamewon.tscn" id="10_y3xxt"]
+[ext_resource type="AudioStream" uid="uid://w6qtugo2gvya" path="res://assests/dark-ambient-synth-67781.mp3" id="11_y3xxt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yg167"]
 atlas = ExtResource("3_kycxp")
@@ -248,3 +249,9 @@ tile_set = SubResource("TileSet_3hfy5")
 [node name="main_ui" parent="CanvasLayer" instance=ExtResource("8_5sfjl")]
 
 [node name="gameover" parent="CanvasLayer" instance=ExtResource("9_7pvxh")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_y3xxt")
+volume_db = -7.0
+autoplay = true
+parameters/looping = true

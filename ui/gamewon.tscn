@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dqhpb8w5ub3fs"]
+[gd_scene load_steps=4 format=3 uid="uid://dqhpb8w5ub3fs"]
 
 [ext_resource type="Script" uid="uid://cag0wljc4pybh" path="res://ui/gamewon.gd" id="1_vn8fg"]
+[ext_resource type="AudioStream" uid="uid://djuyehrg84hq0" path="res://assests/violin-win-5-185128.mp3" id="2_8cswx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nsqoj"]
 bg_color = Color(0.92549, 0.301961, 0.552941, 1)
@@ -59,5 +60,8 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_nsqoj")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_nsqoj")
 theme_override_styles/normal = SubResource("StyleBoxFlat_nsqoj")
 text = "RESTART"
+
+[node name="audio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_8cswx")
 
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]

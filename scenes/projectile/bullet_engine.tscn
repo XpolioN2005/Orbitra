@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cfgck33okxysn"]
+[gd_scene load_steps=5 format=3 uid="uid://cfgck33okxysn"]
 
 [ext_resource type="Script" uid="uid://b8fu1d7vc341y" path="res://scripts/bullet_engine.gd" id="1_fg13m"]
 [ext_resource type="PackedScene" uid="uid://jgyfijnoqlpw" path="res://scenes/projectile/bullet.tscn" id="2_30it4"]
 [ext_resource type="PackedScene" uid="uid://cx6akirubb1aa" path="res://scenes/projectile/curve_bullet.tscn" id="2_w7qgd"]
+[ext_resource type="AudioStream" uid="uid://c3tmo6cgx7cas" path="res://assests/shoot-5-102360.mp3" id="4_r3fhk"]
 
 [node name="bulletEngine" type="Node2D"]
 script = ExtResource("1_fg13m")
@@ -10,3 +11,7 @@ normal_bullet_scene = ExtResource("2_30it4")
 curve_bullet_scene = ExtResource("2_w7qgd")
 
 [node name="bullets" type="Node2D" parent="."]
+
+[node name="audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_r3fhk")
+volume_db = -10.0

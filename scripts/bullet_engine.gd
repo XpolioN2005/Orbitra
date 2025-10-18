@@ -5,6 +5,7 @@ class_name BulletEngine
 @export var curve_bullet_scene: PackedScene   # updated: use CurveBullet
 
 @onready var bullet_holder = $bullets
+@onready var audio = $audio
 
 # Spawn straight bullets
 func shoot_straight(
@@ -28,6 +29,7 @@ func shoot_straight(
 			b.set_direction(direction)
 		
 		bullet_holder.add_child(b)
+		audio.play()
 		await get_tree().create_timer(0.1).timeout
 
 # Spawn bullets in a ring
@@ -55,3 +57,4 @@ func shoot_curve(pos: Vector2, shooter: Node,target: Node, arc_height: float = 2
 	b.arc_height = arc_height
 	b.travel_time = travel_time
 	bullet_holder.add_child(b)
+	audio.play()
