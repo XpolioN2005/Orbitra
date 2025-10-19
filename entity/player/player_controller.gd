@@ -2,7 +2,7 @@ extends Node2D
 
 @export var orbit_speed: float = 180
 @export var hold_threshold: float = 0.15 # seconds before orbiting starts
-@export var fire_cooldown: float = 0.3
+@export var fire_cooldown: float = 0.2
 @export var radius_base: float = 300
 @export var radius_bump: float = 80          # how far radius expands
 @export var bump_speed: float = 8.0          # how fast bump happens

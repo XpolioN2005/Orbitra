@@ -7,9 +7,16 @@ class_name Projectile
 @export var lifetime: float = 5.0
 @export var shooter : Node
 
+@export var is_parry_ble : bool =  true
+
 var velocity: Vector2 = Vector2.ZERO
 
 func _ready():
+
+	add_to_group("projectile")
+
+	if is_parry_ble:
+		add_to_group("parryble")
 	
 	monitoring = true
 	monitorable = true
@@ -37,5 +44,9 @@ func _on_body_entered(area: Node):
 	
 	if area.is_in_group("damageable") and area.has_method("take_dmg"):
 		area.take_dmg(dmg, type)
+
+		queue_free()
 	
+	if area.is_in_group("parryble") and area.shooter != shooter:
+		
 		queue_free()

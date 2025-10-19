@@ -44,14 +44,30 @@ func take_dmg(dmg: int, _type: String):
 	var actual_dmg = dmg
 	if vulnerable:
 		actual_dmg *= 2
+		hit_effect_vulnerable()
 
 	hp -= actual_dmg
+
+	flash_sprite()
 
 	if hp <= 0:
 		Global.is_gameWon = true
 	else:
 		Global.is_gameWon = false
 
+func flash_sprite():
+	sprite.modulate = Color(1, 0.3, 0.3) 
+	await get_tree().create_timer(0.1).timeout
+	sprite.modulate = Color(1, 1, 1)
+
+func hit_effect_vulnerable():
+	# quick red flash + scale punch + short shake
+	var original_scale = sprite.scale
+	sprite.modulate = Color(1, 0.5, 0.5)   # brighter flash
+	sprite.scale = original_scale * 1.05   # small punch
+	await get_tree().create_timer(0.1).timeout
+	sprite.modulate = Color(1, 1, 1)
+	sprite.scale = original_scale
 
 # --- Attacks ---
 func straight_shoot():

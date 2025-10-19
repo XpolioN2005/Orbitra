@@ -18,10 +18,20 @@ func _process(_delta):
 	else: Global.is_gameover = false
 
 
+func hit_effect_vulnerable():
+	var original_scale = sprite.scale
+	sprite.modulate = Color(1, 0.3, 0.3)   # brighter flash
+	sprite.scale = original_scale * 1.05   # small punch
+	await get_tree().create_timer(0.1).timeout
+	sprite.modulate = Color(1, 1, 1)
+	sprite.scale = original_scale
+
 
 func take_dmg(dmg: int, type: String):
 
 	match type:
 		"normal":
 			hp -= dmg
+		
+	hit_effect_vulnerable()
 			

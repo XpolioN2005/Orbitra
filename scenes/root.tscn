@@ -202,7 +202,8 @@ sprite_frames = SubResource("SpriteFrames_02u83")
 autoplay = "default"
 frame_progress = 0.798023
 
-[node name="crystals" type="Node" parent="env"]
+[node name="crystals" type="Node2D" parent="env"]
+z_index = -1
 script = ExtResource("1_jh1ax")
 
 [node name="crystal" parent="env/crystals" instance=ExtResource("3_j287u")]
