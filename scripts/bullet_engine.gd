@@ -7,6 +7,12 @@ class_name BulletEngine
 @onready var bullet_holder = $bullets
 @onready var audio = $audio
 
+# audio
+func _play_shot_sound():
+	audio.pitch_scale = randf_range(0.95, 1.08)  # randomize pitch
+	audio.play()
+
+
 # Spawn straight bullets
 func shoot_straight(
 	pos: Vector2, 
@@ -29,7 +35,7 @@ func shoot_straight(
 			b.set_direction(direction)
 		
 		bullet_holder.add_child(b)
-		audio.play()
+		_play_shot_sound()
 		await get_tree().create_timer(0.1).timeout
 
 # Spawn bullets in a ring
@@ -57,4 +63,4 @@ func shoot_curve(pos: Vector2, shooter: Node,target: Node, arc_height: float = 2
 	b.arc_height = arc_height
 	b.travel_time = travel_time
 	bullet_holder.add_child(b)
-	audio.play()
+	_play_shot_sound()

@@ -23,8 +23,24 @@ var active_touches = {}
 
 func _ready():
 	add_to_group("player_controller")
+
+	var viewport_h = get_viewport().get_visible_rect().size.y
+
+	# Scale radius relative to viewport height
+	radius_base = viewport_h * 0.55       # 30% of screen height
+	radius_bump = viewport_h * 0.08      # 8% of screen height, keeps bump proportional
+
+	print(radius_base)
 	current_radius = radius_base
 	target_radius = radius_base
+
+func _notification(what):
+	if what == NOTIFICATION_WM_SIZE_CHANGED:
+		var viewport_h = get_viewport().get_visible_rect().size.y
+		radius_base = viewport_h * 0.5
+		radius_bump = viewport_h * 0.08
+		target_radius = radius_base
+
 
 func _process(delta):
 	handle_orbit(delta)

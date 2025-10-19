@@ -243,6 +243,7 @@ tile_map_data = PackedByteArray("AACl/8P/AAAAAAMAAACl/8T/AAAAAAMAAACl/8X/AAAAAAM
 tile_set = SubResource("TileSet_3hfy5")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 3
 
 [node name="gamewon" parent="CanvasLayer" instance=ExtResource("10_y3xxt")]
 
@@ -251,6 +252,7 @@ tile_set = SubResource("TileSet_3hfy5")
 [node name="gameover" parent="CanvasLayer" instance=ExtResource("9_7pvxh")]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
 stream = ExtResource("11_y3xxt")
 volume_db = -7.0
 autoplay = true
