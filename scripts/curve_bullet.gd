@@ -38,3 +38,47 @@ func _physics_process(delta: float) -> void:
 	# Rotation
 	if elapsed_time > 0.0:
 		rotation = (global_position - position).angle()
+
+func reset():
+	# Call parent reset
+	super.reset()
+
+	# Reset curve-specific variables
+	start_pos = Vector2.ZERO
+	target_pos = Vector2.ZERO
+	target = null
+	elapsed_time = 0.0
+	arc_height = 200.0
+	travel_time = 1.0
+
+func fire_curve(
+	pos: Vector2,
+	target_node: Node,
+	shooter_node: Node,
+	curve_height: float = 200.0,
+	travel_seconds: float = 1.0,
+	bullet_dmg: int = 1
+):
+	# Reset the bullet first
+	reset()
+
+	# Set common projectile properties
+	global_position = pos
+	shooter = shooter_node
+	dmg = bullet_dmg
+
+	# CurveBullet-specific properties
+	start_pos = pos
+	target = target_node
+	target_pos = target.global_position
+	arc_height = curve_height
+	travel_time = travel_seconds
+	elapsed_time = 0.0
+
+	# Activate bullet
+	is_disbaled = false
+	visible = true
+	set_deferred("monitoring", true)
+	set_deferred("monitorable", true)
+	area_entered.connect(_on_body_entered)
+	set_physics_process(true)

@@ -232,10 +232,10 @@ shadow_color = Color(0, 0, 0, 0.72549)
 
 [node name="playerController" parent="." instance=ExtResource("1_j5px3")]
 
-[node name="bulletEngine" parent="." instance=ExtResource("3_lrqlo")]
+[node name="boss" parent="." instance=ExtResource("2_twpsu")]
 unique_name_in_owner = true
 
-[node name="boss" parent="." instance=ExtResource("2_twpsu")]
+[node name="bulletEngine" parent="." instance=ExtResource("3_lrqlo")]
 unique_name_in_owner = true
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
