@@ -2,6 +2,7 @@ extends Control
 
 @onready var player_bar: ProgressBar = %player_bar
 @onready var boss_bar: ProgressBar  = %boss_bar
+@onready var boss_name: Label  = %boss_name
 
 var player: Node2D
 var boss: Node2D
@@ -14,6 +15,8 @@ func _ready() -> void:
 
 	player_bar.max_value = player.MAXHP
 	boss_bar.max_value  = boss.MAXHP
+
+	boss_name.text = boss.boss_name
 
 	# start clean
 	player_bar.value = player.hp
